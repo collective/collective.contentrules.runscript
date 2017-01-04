@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="collective.contentrules.runscript">
+
+    <!-- RunScript action definition -->
+     <adapter factory=".runscript.RunScriptActionExecutor" />
+
+     <browser:page
+       for="plone.app.contentrules.browser.interfaces.IRuleActionAdding"
+       name="collective.contentrules.RunScript.AddFormView"
+       class=".runscript.RunScriptAddForm"
+       permission="plone.app.contentrules.ManageContentRules"
+       />
+
+     <browser:page
+       for="collective.contentrules.runscript.actions.interfaces.IRunScriptAction"
+       name="edit"
+       class=".runscript.RunScriptEditFormView"
+       permission="plone.app.contentrules.ManageContentRules"
+       />
+
+     <plone:ruleAction
+         name="collective.contentrules.RunScriptAction"
+         title="Run Script"
+         description="Run Script on the triggering object."
+         for="*"
+         event="zope.component.interfaces.IObjectEvent"
+         addview="collective.contentrules.RunScript.AddFormView"
+         editview="edit"
+         schema=".interfaces.IRunScriptAction"
+         factory=".runscript.RunScriptAction"
+         />
+</configure>

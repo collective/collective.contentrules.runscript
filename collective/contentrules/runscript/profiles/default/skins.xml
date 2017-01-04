@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+ <object name="collective_contentrules_runscript_scripts"
+    meta_type="Filesystem Directory View"
+    directory="collective.contentrules.runscript:skins/collective_contentrules_runscript_scripts"/>
+
+ <skin-path name="*">
+  <layer name="collective_contentrules_runscript_scripts"
+     insert-after="custom"/>
+ </skin-path>
+
+</object>

@@ -1,0 +1,82 @@
+# Translation of collective.contentrules.runscript.pot to Spanish (Mexico)
+# FIRST AUTHOR <nnieto@noenieto.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.contentrules.runscript\n"
+"POT-Creation-Date: 2017-01-03 19:29-0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Danilo G. Botelho <nnieto@noenieto.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: es-mx\n"
+"Language-Name: Español de México\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.contentrules.runscript\n"
+
+#: .\actions\interfaces.py:21
+msgid "A list of parameters you wish to pass to the script"
+msgstr "Lista de parâmetros que pasarán al script"
+
+#: .\actions\runscript.py:108
+msgid "Add RunScript Action"
+msgstr "Agregar acción \"Executar Script\""
+
+#: .\actions\runscript.py:109
+msgid "An action that can run a script on the object"
+msgstr "Una acción para executar un script teniedo un objeto como contexto"
+
+#: .\actions\runscript.py:110
+msgid "Configure element"
+msgstr "Configurar elemento"
+
+#: .\actions\runscript.py:124
+msgid "Edit RunScript Action"
+msgstr "Editar Acción \"Executar Script\""
+
+#: .\actions\interfaces.py:27
+msgid "Fail on script not found"
+msgstr "Fallar si el script no ha sido encontrado?"
+
+#: .\actions\interfaces.py:34
+msgid "If checked, tries to do a restricted traversal to the script."
+msgstr "Se está seleccionado la localización del script estará restricta"
+
+#: .\actions\interfaces.py:7
+msgid "Name"
+msgstr "Nombre"
+
+#: .\actions\interfaces.py:23
+msgid "Parameter"
+msgstr "Parâmetro"
+
+#: .\actions\interfaces.py:20
+msgid "Parameter list"
+msgstr "Lista de Parâmetros"
+
+#: .\actions\interfaces.py:33
+msgid "Perform permission verification on script"
+msgstr "Realizar verificación de permisos del script"
+
+#: .\actions\interfaces.py:28
+msgid "Raise exception if script can't be traversed to from object."
+msgstr "Generar una excepción cuando el script no puede ser localizado a partir del objeto."
+
+#: .\actions\runscript.py:63
+msgid "Run script '${script}' on the object."
+msgstr "Executar el script '${script}' con el objeto como contexto."
+
+#: .\actions\interfaces.py:14
+msgid "Script"
+msgstr "Script"
+
+#: .\actions\interfaces.py:15
+msgid "The script"
+msgstr "El script"
+
+#: .\actions\interfaces.py:8
+msgid "Value"
+msgstr "Valor"
+
