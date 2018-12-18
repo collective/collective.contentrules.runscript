@@ -1,15 +1,14 @@
 from OFS.SimpleItem import SimpleItem
-from zope.component import adapts
-from zope.interface import Interface, implements
-
-from plone.app.contentrules.actions import ActionAddForm, ActionEditForm
-from plone.contentrules.rule.interfaces import IRuleElementData, IExecutable
-
 from Products.CMFPlone.utils import safe_unicode
-
 from collective.contentrules.runscript import runscriptMessageFactory as _
-from collective.contentrules.runscript.actions.interfaces import IRunScriptAction, IParamValuePair
-from plone.app.contentrules.browser.formhelper import ContentRuleFormWrapper, AddForm, EditForm
+from collective.contentrules.runscript.actions.interfaces import \
+    IRunScriptAction
+from plone.app.contentrules.browser.formhelper import AddForm
+from plone.app.contentrules.browser.formhelper import EditForm
+from plone.contentrules.rule.interfaces import IRuleElementData, IExecutable
+from zope.component import adapts
+from zope.formlib import form
+from zope.interface import Interface, implements
 
 
 class ScriptNotFound(Exception):
@@ -32,7 +31,7 @@ class RunScriptAction(SimpleItem):
     restricted_traverse = False
     parameters = {}
 
-    element = 'collective.contentrules.RunScript'
+    element = 'collective.contentrules.runscript.ApplyRunScript'
 
     @property
     def summary(self):
@@ -75,20 +74,23 @@ class RunScriptActionExecutor(object):
         return True
 
 
-class RunScriptAddForm(ActionAddForm):
+class RunScriptAddForm(AddForm):
     """
     An add form for the RunScript action
     """
+    form_fields = form.FormFields(IRunScriptAction)
     schema = IRunScriptAction
     label = _(u"Add RunScript Action")
     description = _(u"An action that can run a script on the object")
-    Type = RunScriptAction
+    form_name = _(u"Run Script")
 
-class RunScriptAddFormView(ContentRuleFormWrapper):
-    form = RunScriptAddForm
+    def create(self, data):
+        a = RunScriptAction()
+        form.applyChanges(a, self.form_fields, data)
+        return a
 
 
-class RunScriptEditForm(ActionEditForm):
+class RunScriptEditForm(EditForm):
     """
     An edit form for the RunScript action
     """
@@ -97,5 +99,5 @@ class RunScriptEditForm(ActionEditForm):
     description = _(u"An action that can run a script on the object")
     form_name = _(u"Configure element")
 
-class RunScriptEditFormView(ContentRuleFormWrapper):
-    form = RunScriptEditForm
+
+
