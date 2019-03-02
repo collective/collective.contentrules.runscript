@@ -32,7 +32,7 @@ class RunScriptAction(SimpleItem):
     restricted_traverse = False
     parameters = {}
 
-    element = 'collective.contentrules.RunScript'
+    element = 'collective.contentrules.RunScriptAction'
 
     @property
     def summary(self):
